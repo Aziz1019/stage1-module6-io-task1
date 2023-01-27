@@ -10,12 +10,12 @@ public class FileReader {
         Profile profile = new Profile();
         try (BufferedReader br = new BufferedReader(new java.io.FileReader(file))) {
             String st;
-            String data = "";
+            StringBuilder data = new StringBuilder();
             while ((st = br.readLine()) != null) {
-                data += st + " ";
+                data.append(st).append(" ");
             }
 
-            String[] dataArr = data.split(" ");
+            String[] dataArr = data.toString().split(" ");
             profile.setName(dataArr[1]);
             profile.setAge(Integer.parseInt(dataArr[3]));
             profile.setEmail(dataArr[5]);
